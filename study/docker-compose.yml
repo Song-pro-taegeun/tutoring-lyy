@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  backend:
+    # image: openjdk:17-jdk-alpin
+    build:
+      context: ./pj_study_back # Dockerfile의 경로
+      dockerfile: Dockerfile.back
+    container_name: dev_study_back
+    ports:
+      - "2000:8080"
+    volumes:
+      - ./pj_study_back/study-0.0.1-SNAPSHOT.jar:/app/study-0.0.1-SNAPSHOT.jar
+    command: ["java", "-jar", "/app/study-0.0.1-SNAPSHOT.jar"]
